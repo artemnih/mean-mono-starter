@@ -16,7 +16,6 @@ RUN npm run build:common
 RUN npm run build:ui
 
 FROM nginx:1.17-alpine
-COPY VERSION /VERSION
 COPY --from=build /var/www/packages/ui/dist/workflow /var/www/
 
 COPY default.conf /etc/nginx/conf.d/
